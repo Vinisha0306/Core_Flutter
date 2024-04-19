@@ -1,4 +1,5 @@
-import 'package:extra/Page/home_page/componets/form.dart';
+import 'package:extra/Page/details_page/componets/form.dart';
+import 'package:extra/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:extra/headers.dart';
 
@@ -36,47 +37,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FloatingActionButton.extended(
               onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => SingleChildScrollView(
-                    child: AlertDialog(
-                      title: const Text(
-                        'Student Details',
-                      ),
-                      actions: [
-                        //name
-                        form(
-                          image: () async {
-                            ImagePicker picker = ImagePicker();
-
-                            XFile? file = await picker.pickImage(
-                                source: ImageSource.gallery);
-
-                            if (file != null) {
-                              Globals.globals.student_image = File(file.path);
-                              setState(() {});
-                            }
-                          },
-                          save: () {
-                            bool validated = formkey.currentState!.validate();
-                            if (validated) {
-                              formkey.currentState!.save();
-                              Navigator.pop(context);
-                            }
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              MySnackBar(
-                                color: validated ? Colors.green : Colors.red,
-                                context: validated
-                                    ? 'Form Saved'
-                                    : 'Failed To Validate Form',
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                Navigator.pushNamed(context, MyRoutes.detailPage);
               },
               label: const Text('Add Student'),
               icon: const Icon(

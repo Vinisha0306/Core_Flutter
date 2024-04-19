@@ -1,3 +1,5 @@
+import 'package:extra/routes.dart';
+
 import 'headers.dart';
 
 class MyApp extends StatelessWidget {
@@ -5,9 +7,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      routes: {
+        MyRoutes.homePage: (context) => HomePage(),
+        MyRoutes.detailPage: (context) => DetailsPage(),
+      },
     );
   }
 }
