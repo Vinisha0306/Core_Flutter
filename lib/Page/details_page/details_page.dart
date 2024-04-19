@@ -42,6 +42,14 @@ class _DetailsPageState extends State<DetailsPage> {
                 context: validated ? 'Form Saved' : 'Failed To Validate Form',
               ),
             );
+            StudentData.add(
+              {
+                'name': Globals.globals.student_name,
+                'grid': Globals.globals.student_grid,
+                'std': Globals.globals.student_standard,
+                'image': Globals.globals.student_image
+              },
+            );
           },
         ),
       ),

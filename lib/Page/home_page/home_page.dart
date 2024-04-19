@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> {
             ),
             FloatingActionButton.extended(
               onPressed: () {
-                Navigator.pushNamed(context, MyRoutes.detailPage);
+                Navigator.pushNamed(context, MyRoutes.detailPage).then(
+                  (value) {
+                    setState(() {});
+                  },
+                );
               },
               label: const Text('Add Student'),
               icon: const Icon(
