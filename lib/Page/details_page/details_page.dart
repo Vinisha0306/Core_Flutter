@@ -44,6 +44,8 @@ class _DetailsPageState extends State<DetailsPage> {
                     "image": Globals.globals.student_image
                   },
                 );
+                print("=====================================================");
+                print(StudentData[0]['name']);
               }
               ScaffoldMessenger.of(context).showSnackBar(
                 MySnackBar(

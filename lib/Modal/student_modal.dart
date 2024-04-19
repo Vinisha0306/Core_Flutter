@@ -1,25 +1,25 @@
+import 'dart:io';
+
 class Student {
   final String name;
   final String grid;
   final String std;
-  final String image;
+  File? image;
 
   Student(
-      {required this.name,
-      required this.grid,
-      required this.std,
-      required this.image});
+      {required this.name, required this.grid, required this.std, this.image});
 
   factory Student.formMap({required Map data}) => Student(
-      name: data['name'],
-      grid: data['grid'],
-      std: data['std'],
-      image: data['image']);
+        name: data['name'],
+        grid: data['grid'],
+        std: data['std'],
+        image: File(data['image']),
+      );
 
   Map<String, dynamic> get toMap => {
         'name': name,
         'grid': grid,
         'std': std,
-        'image': image,
+        'image': image?.path,
       };
 }
