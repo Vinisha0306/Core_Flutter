@@ -17,40 +17,42 @@ class _DetailsPageState extends State<DetailsPage> {
       appBar: AppBar(
         title: Text('Add Student Page'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: form(
-          image: () async {
-            ImagePicker picker = ImagePicker();
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: form(
+            image: () async {
+              ImagePicker picker = ImagePicker();
 
-            XFile? file = await picker.pickImage(source: ImageSource.gallery);
+              XFile? file = await picker.pickImage(source: ImageSource.gallery);
 
-            if (file != null) {
-              Globals.globals.student_image = File(file.path);
-              setState(() {});
-            }
-          },
-          save: () {
-            bool validated = formkey.currentState!.validate();
-            if (validated) {
-              formkey.currentState!.save();
-              Navigator.pop(context);
-            }
-            ScaffoldMessenger.of(context).showSnackBar(
-              MySnackBar(
-                color: validated ? Colors.green : Colors.red,
-                context: validated ? 'Form Saved' : 'Failed To Validate Form',
-              ),
-            );
-            StudentData.add(
-              {
-                'name': Globals.globals.student_name,
-                'grid': Globals.globals.student_grid,
-                'std': Globals.globals.student_standard,
-                'image': Globals.globals.student_image
-              },
-            );
-          },
+              if (file != null) {
+                Globals.globals.student_image = File(file.path);
+                setState(() {});
+              }
+            },
+            save: () {
+              bool validated = formkey.currentState!.validate();
+              if (validated) {
+                formkey.currentState!.save();
+                Navigator.pop(context);
+                StudentData.add(
+                  {
+                    "name": Globals.globals.student_name,
+                    "grid": Globals.globals.student_grid,
+                    "std": Globals.globals.student_standard,
+                    "image": Globals.globals.student_image
+                  },
+                );
+              }
+              ScaffoldMessenger.of(context).showSnackBar(
+                MySnackBar(
+                  color: validated ? Colors.green : Colors.red,
+                  context: validated ? 'Form Saved' : 'Failed To Validate Form',
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

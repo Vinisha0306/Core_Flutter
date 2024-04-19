@@ -26,6 +26,16 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {});
+            },
+            icon: const Icon(
+              Icons.refresh,
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -36,12 +46,9 @@ class _HomePageState extends State<HomePage> {
               child: listView(),
             ),
             FloatingActionButton.extended(
-              onPressed: () {
-                Navigator.pushNamed(context, MyRoutes.detailPage).then(
-                  (value) {
-                    setState(() {});
-                  },
-                );
+              onPressed: () async {
+                await Navigator.pushNamed(context, MyRoutes.detailPage);
+                print(StudentData[0]);
               },
               label: const Text('Add Student'),
               icon: const Icon(
