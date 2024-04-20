@@ -29,7 +29,7 @@ class _DetailsPageState extends State<DetailsPage> {
           height: 400,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.orange.shade300,
+            color: Colors.blue.shade300,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(

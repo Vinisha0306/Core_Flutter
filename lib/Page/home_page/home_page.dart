@@ -59,17 +59,6 @@ class _HomePageState extends State<HomePage> {
               flex: 13,
               child: listView(
                 getState: getState,
-                image: () async {
-                  ImagePicker picker = ImagePicker();
-
-                  XFile? file =
-                      await picker.pickImage(source: ImageSource.gallery);
-
-                  if (file != null) {
-                    Globals.globals.student_image = File(file.path);
-                    setState(() {});
-                  }
-                },
               ),
             ),
             FloatingActionButton.extended(
