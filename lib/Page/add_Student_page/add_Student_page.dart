@@ -1,4 +1,5 @@
 import 'package:extra/headers.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../utils/snackBar.dart';
 import 'componets/form.dart';
@@ -15,7 +16,23 @@ class _AddStudentPageState extends State<AddStudentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Student Page'),
+        title: const Text(
+          'Add Student',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.blue.shade700,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            CupertinoIcons.back,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

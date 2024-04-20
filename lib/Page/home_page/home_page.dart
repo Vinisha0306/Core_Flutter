@@ -12,17 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 GlobalKey<FormState> formkey = GlobalKey<FormState>();
-List<Map> studentEdit = List.generate(
-  Globals.globals.StudentData.length,
-  (index) => {
-    "name":
-        TextEditingController(text: Globals.globals.StudentData[index]['name']),
-    "grid":
-        TextEditingController(text: Globals.globals.StudentData[index]['grid']),
-    "std":
-        TextEditingController(text: Globals.globals.StudentData[index]['std']),
-  },
-);
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -35,21 +24,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Home Page',
+          'All Student',
           style: TextStyle(
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {});
-            },
-            icon: const Icon(
-              Icons.refresh,
-            ),
-          ),
-        ],
+        backgroundColor: Colors.blue.shade700,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -57,9 +38,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               flex: 13,
-              child: listView(
-                getState: getState,
-              ),
+              child: listView(getState: getState),
             ),
             FloatingActionButton.extended(
               onPressed: () async {

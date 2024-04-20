@@ -3,6 +3,18 @@ import 'package:extra/routes.dart';
 import 'package:extra/utils/Globals.dart';
 
 Widget listView({required getState}) {
+  List<Map> studentEdit = List.generate(
+    Globals.globals.StudentData.length,
+    (index) => {
+      "name": TextEditingController(
+          text: Globals.globals.StudentData[index]['name']),
+      "grid": TextEditingController(
+          text: Globals.globals.StudentData[index]['grid']),
+      "std": TextEditingController(
+          text: Globals.globals.StudentData[index]['std']),
+    },
+  );
+
   return ListView.separated(
     itemCount: Globals.globals.StudentData.length,
     itemBuilder: (context, index) => Column(
@@ -69,6 +81,7 @@ Widget listView({required getState}) {
             ),
             trailing: IconButton(
               onPressed: () {
+                // print(studentEdit[index]['name']);
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(

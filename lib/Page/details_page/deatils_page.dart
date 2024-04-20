@@ -1,4 +1,6 @@
 import 'package:extra/headers.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -15,13 +17,24 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Details Page',
+          'Student Details',
           style: TextStyle(
+            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            CupertinoIcons.back,
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.blue.shade700,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

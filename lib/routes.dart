@@ -1,5 +1,6 @@
 class MyRoutes {
-  static String homePage = '/';
+  static String splashPage = '/';
+  static String homePage = 'HomePage';
   static String detailPage = 'DetailPage';
   static String addStudentPage = 'AddStudentPage';
 }
