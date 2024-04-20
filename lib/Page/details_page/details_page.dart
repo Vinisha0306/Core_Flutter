@@ -36,7 +36,7 @@ class _DetailsPageState extends State<DetailsPage> {
               if (validated) {
                 formkey.currentState!.save();
                 Navigator.pop(context);
-                StudentData.add(
+                Globals.globals.StudentData.add(
                   {
                     "name": Globals.globals.student_name,
                     "grid": Globals.globals.student_grid,
@@ -44,8 +44,6 @@ class _DetailsPageState extends State<DetailsPage> {
                     "image": Globals.globals.student_image
                   },
                 );
-                print("=====================================================");
-                print(StudentData[0]['name']);
               }
               ScaffoldMessenger.of(context).showSnackBar(
                 MySnackBar(

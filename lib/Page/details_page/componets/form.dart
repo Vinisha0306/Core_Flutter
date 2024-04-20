@@ -1,5 +1,7 @@
 import 'package:extra/headers.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../../utils/Globals.dart';
 
 Widget form({required image, required save}) {
@@ -7,6 +9,29 @@ Widget form({required image, required save}) {
     key: formkey,
     child: Column(
       children: [
+        Stack(
+          alignment: Alignment.bottomRight,
+          children: [
+            GestureDetector(
+              onTap: image,
+              child: CircleAvatar(
+                radius: 70,
+                foregroundImage: Globals.globals.student_image == null
+                    ? FileImage(File(
+                        'https://i.pinimg.com/236x/0a/75/9f/0a759f8138be06b43a447b00c8a6e392.jpg'))
+                    : FileImage(Globals.globals.student_image!),
+                child: Globals.globals.student_image == null
+                    ? IconButton(
+                        onPressed: image,
+                        icon: const Icon(
+                          Icons.add_a_photo,
+                        ),
+                      )
+                    : null,
+              ),
+            ),
+          ],
+        ),
         TextFormField(
           onSaved: (val) {
             Globals.globals.student_name = val;
@@ -69,15 +94,6 @@ Widget form({required image, required save}) {
         ),
         const SizedBox(
           height: 10,
-        ),
-        GestureDetector(
-          onTap: image,
-          child: CircleAvatar(
-            radius: 70,
-            foregroundImage: Globals.globals.student_image == null
-                ? null
-                : FileImage(Globals.globals.student_image!),
-          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
