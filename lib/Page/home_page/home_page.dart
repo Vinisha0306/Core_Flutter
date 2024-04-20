@@ -1,4 +1,3 @@
-import 'package:extra/Page/details_page/componets/form.dart';
 import 'package:extra/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:extra/headers.dart';
@@ -75,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             ),
             FloatingActionButton.extended(
               onPressed: () async {
-                await Navigator.pushNamed(context, MyRoutes.detailPage);
+                await Navigator.pushNamed(context, MyRoutes.addStudentPage);
                 print(Globals.globals.StudentData[0]);
                 setState(() {});
               },

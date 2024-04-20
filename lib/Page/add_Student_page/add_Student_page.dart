@@ -3,14 +3,14 @@ import 'package:extra/headers.dart';
 import '../../utils/snackBar.dart';
 import 'componets/form.dart';
 
-class DetailsPage extends StatefulWidget {
-  const DetailsPage({super.key});
+class AddStudentPage extends StatefulWidget {
+  const AddStudentPage({super.key});
 
   @override
-  State<DetailsPage> createState() => _DetailsPageState();
+  State<AddStudentPage> createState() => _AddStudentPageState();
 }
 
-class _DetailsPageState extends State<DetailsPage> {
+class _AddStudentPageState extends State<AddStudentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
